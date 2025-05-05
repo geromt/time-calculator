@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { substractTime, addTime, getTotalTime } from '../timeService'
+import { substractTime, addTime, getTotalTime, parseTime } from '../timeService'
 
 describe('TimeService', () => {
   it('Should remain equal when substracting 0', () => {
@@ -81,5 +81,15 @@ describe('TimeService', () => {
     ]
     const result = getTotalTime({ timeList })
     expect(result).toEqual({ hours: 1, minutes: 0, seconds: 1 })
+  })
+
+  it('Should parse zero time correctly', () => {
+    const result = parseTime({ hours: 0, minutes: 0, seconds: 0 })
+    expect(result).toEqual({ hours: 0, minutes: 0, seconds: 0 })
+  })
+
+  it('Should parse empty strings correctly', () => {
+    const result = parseTime({ hours: '', minutes: '', seconds: '' })
+    expect(result).toEqual({ hours: 0, minutes: 0, seconds: 0 })
   })
 })

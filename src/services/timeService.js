@@ -49,3 +49,10 @@ export const addTime = ({ totalTime, addTime }) => {
 
   return floorTime({ time: newTotalTime })
 }
+
+export const parseTime = ({ hours, minutes, seconds }) => {
+  const hoursInt = parseInt(hours) || 0
+  const minutesInt = parseInt(minutes) || 0
+  const secondsInt = parseInt(seconds) || 0
+  return { hours: hoursInt, minutes: minutesInt, seconds: secondsInt }
+}
