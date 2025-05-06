@@ -28,16 +28,21 @@ function App () {
   }
 
   return (
-    <>
-      <h1>Time calculator</h1>
-      {timeRowList.map((_, i) => <TimeRow key={i} index={i} onTimeChange={getTimeRow} />)}
+    <div className='flex flex-col items-center justify-around h-screen text-wrap'>
+      <h1 className='font-bold font-mono text-4xl text-center'>Time calculator</h1>
+      <div className='grid grid-cols-3 w-11/12'>
+        <p className='text-center'>Hours</p>
+        <p className='text-center'>Minutes</p>
+        <p className='text-center'>Seconds</p>
+        {timeRowList.map((_, i) => <TimeRow key={i} index={i} onTimeChange={getTimeRow} />)}
+      </div>
 
+      <button onClick={addTimeRow} className=''>+</button>
       <div className='flex flex-row'>
         <h2>Time: </h2>
         <p>{timeString}</p>
       </div>
-      <button onClick={addTimeRow}>Add</button>
-    </>
+    </div>
   )
 }
 
